@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vasanth V - Professional Portfolio</title>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
@@ -19,13 +16,10 @@
             line-height: 1.6;
         }
 
-        /* Animated Background with Gradient Waves */
+        /* ---------------- BACKGROUND ---------------- */
         .animated-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             z-index: -1;
             background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
             background-size: 400% 400%;
@@ -38,11 +32,9 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Tech Grid Pattern */
         .tech-grid {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-image:
                 linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
@@ -55,51 +47,18 @@
             100% { transform: translate(50px, 50px); }
         }
 
-        /* Circuit Lines */
-        .circuit-lines {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
+        .circuit-lines { position: absolute; inset: 0; overflow: hidden; }
         .circuit-line {
             position: absolute;
+            height: 2px;
             background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
             animation: circuitFlow 8s linear infinite;
         }
 
-        .circuit-line:nth-child(1) {
-            width: 200px;
-            height: 2px;
-            top: 20%;
-            left: -200px;
-            animation-delay: 0s;
-        }
-
-        .circuit-line:nth-child(2) {
-            width: 150px;
-            height: 2px;
-            top: 40%;
-            left: -150px;
-            animation-delay: 2s;
-        }
-
-        .circuit-line:nth-child(3) {
-            width: 180px;
-            height: 2px;
-            top: 60%;
-            left: -180px;
-            animation-delay: 4s;
-        }
-
-        .circuit-line:nth-child(4) {
-            width: 160px;
-            height: 2px;
-            top: 80%;
-            left: -160px;
-            animation-delay: 6s;
-        }
+        .circuit-line:nth-child(1) { width: 200px; top: 20%; left: -200px; animation-delay: 0s; }
+        .circuit-line:nth-child(2) { width: 150px; top: 40%; left: -150px; animation-delay: 2s; }
+        .circuit-line:nth-child(3) { width: 180px; top: 60%; left: -180px; animation-delay: 4s; }
+        .circuit-line:nth-child(4) { width: 160px; top: 80%; left: -160px; animation-delay: 6s; }
 
         @keyframes circuitFlow {
             0% { left: -200px; opacity: 0; }
@@ -108,11 +67,10 @@
             100% { left: 100%; opacity: 0; }
         }
 
-        /* Binary Rain Effect */
+        /* Binary Effect */
         .binary-rain {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             overflow: hidden;
         }
 
@@ -122,21 +80,9 @@
             color: rgba(99, 102, 241, 0.3);
             font-family: 'Courier New', monospace;
             font-size: 14px;
-            line-height: 14px;
             white-space: nowrap;
             animation: binaryFall 10s linear infinite;
         }
-
-        .binary-col:nth-child(1) { left: 5%; animation-delay: 0s; }
-        .binary-col:nth-child(2) { left: 15%; animation-delay: 2s; }
-        .binary-col:nth-child(3) { left: 25%; animation-delay: 4s; }
-        .binary-col:nth-child(4) { left: 35%; animation-delay: 1s; }
-        .binary-col:nth-child(5) { left: 45%; animation-delay: 3s; }
-        .binary-col:nth-child(6) { left: 55%; animation-delay: 5s; }
-        .binary-col:nth-child(7) { left: 65%; animation-delay: 2.5s; }
-        .binary-col:nth-child(8) { left: 75%; animation-delay: 4.5s; }
-        .binary-col:nth-child(9) { left: 85%; animation-delay: 1.5s; }
-        .binary-col:nth-child(10) { left: 95%; animation-delay: 3.5s; }
 
         @keyframes binaryFall {
             0% { top: -100%; opacity: 0; }
@@ -145,41 +91,13 @@
             100% { top: 100%; opacity: 0; }
         }
 
-        /* Floating Orbs */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
-            animation: float 20s infinite ease-in-out;
-        }
+        .binary-col:nth-child(n) { animation-delay: calc(n * 0.3s); left: calc(5% + (n - 1) * 9%); }
 
-        .orb1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #6366f1, transparent);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .orb2 {
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, #ec4899, transparent);
-            top: 60%;
-            right: 10%;
-            animation-delay: 3s;
-        }
-
-        .orb3 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, #14b8a6, transparent);
-            bottom: 10%;
-            left: 50%;
-            animation-delay: 6s;
-        }
+        /* Floating Lights */
+        .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.4; animation: float 20s infinite ease-in-out; }
+        .orb1 { width: 400px; height: 400px; background: radial-gradient(circle, #6366f1, transparent); top: 10%; left: 10%; }
+        .orb2 { width: 350px; height: 350px; background: radial-gradient(circle, #ec4899, transparent); top: 60%; right: 10%; animation-delay: 3s; }
+        .orb3 { width: 300px; height: 300px; background: radial-gradient(circle, #14b8a6, transparent); bottom: 10%; left: 50%; animation-delay: 6s; }
 
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1); }
@@ -188,59 +106,43 @@
             75% { transform: translate(40px, 10px) scale(1.05); }
         }
 
-        /* Particle Effect */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
+        /* Particles */
+        .particles { position: fixed; inset: 0; z-index: -1; }
         .particle {
             position: absolute;
-            width: 3px;
-            height: 3px;
+            width: 3px; height: 3px;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
             animation: rise 15s linear infinite;
         }
 
         @keyframes rise {
-            0% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
-            100% {
-                transform: translateY(-100vh) translateX(100px);
-                opacity: 0;
-            }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
 
-        /* Header Navigation */
+        .particle:nth-child(n) { left: calc(n * 10%); animation-delay: calc(n * .3s); }
+
+        /* ---------------- HEADER ---------------- */
         header {
             position: fixed;
             top: 0;
             width: 100%;
+            padding: 1.5rem 5%;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 5%;
             z-index: 1000;
             transition: all 0.3s;
         }
 
-        header.scrolled {
-            padding: 1rem 5%;
-            background: rgba(0, 0, 0, 0.9);
-        }
+        header.scrolled { padding: 1rem 5%; background: rgba(0, 0, 0, 0.9); }
 
         nav {
             max-width: 1400px;
-            margin: 0 auto;
+            margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -252,15 +154,12 @@
             background: linear-gradient(135deg, #6366f1, #ec4899, #14b8a6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
         }
 
         .nav-menu {
+            list-style: none;
             display: flex;
             gap: 3rem;
-            list-style: none;
-            align-items: center;
         }
 
         .nav-menu a {
@@ -268,57 +167,27 @@
             text-decoration: none;
             font-weight: 500;
             position: relative;
-            transition: color 0.3s;
+            transition: 0.3s;
         }
 
-        .nav-menu a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #6366f1, #ec4899);
-            transition: width 0.3s;
-        }
+        .nav-menu a:hover { color: #fff; }
 
-        .nav-menu a:hover {
-            color: #ffffff;
-        }
-
-        .nav-menu a:hover::before {
-            width: 100%;
-        }
-
+        /* Resume button */
         .nav-resume {
             background: linear-gradient(135deg, #6366f1, #ec4899);
-            color: #ffffff !important;
-            padding: 0.6rem 1.5rem;
+            padding: .6rem 1.5rem;
             border-radius: 50px;
-            transition: all 0.3s;
+            color: #fff !important;
         }
 
-        .nav-resume::before {
-            display: none;
-        }
-
-        .nav-resume:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
-        }
-
-        /* Hero Section */
+        /* ---------------- HERO ---------------- */
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            text-align: center;
+            align-items: center;
             padding: 8rem 5% 5rem;
-        }
-
-        .hero-content {
-            max-width: 900px;
+            text-align: center;
         }
 
         .hero-title {
@@ -328,465 +197,179 @@
             background: linear-gradient(135deg, #ffffff, #a78bfa, #ec4899);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease;
         }
 
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
         }
 
         .hero-description {
+            max-width: 700px;
+            margin: 0 auto 3rem;
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            animation: fadeInUp 1s ease 0.4s backwards;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-
+        .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
         .btn {
             padding: 1rem 2.5rem;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            text-decoration: none;
         }
-
         .btn-primary {
             background: linear-gradient(135deg, #6366f1, #ec4899);
-            color: #ffffff;
+            color: #fff;
         }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ec4899, #6366f1);
-            transition: left 0.3s;
-            z-index: -1;
-        }
-
-        .btn-primary:hover::before {
-            left: 0;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.5);
-        }
-
         .btn-secondary {
-            background: transparent;
-            color: #ffffff;
             border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styling */
+        /* ---------------- SECTIONS ---------------- */
         section {
             padding: 6rem 5%;
             max-width: 1400px;
-            margin: 0 auto;
+            margin: auto;
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
             text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
             margin-bottom: 4rem;
             background: linear-gradient(135deg, #6366f1, #ec4899);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
         }
 
-        /* Card Grid */
+        /* Cards */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
         }
 
-        /* Enhanced Cards with Hover Transform */
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
             padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        /* Card Glow Effect */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #6366f1, #ec4899, #14b8a6);
-            border-radius: 24px;
-            opacity: 0;
-            transition: opacity 0.5s;
-            z-index: -1;
-        }
-
-        .card::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border-radius: 22px;
-            z-index: -1;
-        }
-
-        .card:hover::before {
-            opacity: 1;
-            animation: borderGlow 2s linear infinite;
-        }
-
-        @keyframes borderGlow {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
+            backdrop-filter: blur(20px);
+            transition: .5s;
         }
 
         .card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3),
-                        0 0 80px rgba(236, 72, 153, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Card Content Transform on Hover */
-        .card:hover .card-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .card:hover .card-title {
-            color: #ec4899;
-            transform: translateX(10px);
-        }
-
-        .card:hover .card-text {
-            color: rgba(255, 255, 255, 0.95);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
         }
 
         .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #6366f1, #ec4899);
+            width: 60px; height: 60px;
             border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 1.8rem;
+            display: flex; justify-content: center; align-items: center;
             margin-bottom: 1.5rem;
-            transition: all 0.4s;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
         }
 
         .card-title {
             font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 1rem;
             font-weight: 700;
-            transition: all 0.4s;
+            margin-bottom: 1rem;
         }
 
-        .card-subtitle {
-            color: #ec4899;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
+        .card-subtitle { color: #ec4899; margin-bottom: .5rem; font-weight: 600; }
+        .card-date { font-size: .9rem; color: rgba(255,255,255,.4); margin-bottom: 1rem; }
+        .card-text { color: rgba(255,255,255,.7); }
 
-        .card-text {
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.8;
-            margin-bottom: 0.8rem;
-            transition: all 0.4s;
-        }
-
-        .card-date {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        /* About Section Special Card */
-        .about-card {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Skills Section */
+        /* Skills */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
             justify-content: center;
-            margin-top: 3rem;
         }
 
         .skill-badge {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
-            backdrop-filter: blur(10px);
             padding: 1rem 2rem;
+            background: rgba(255,255,255,0.1);
             border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.2);
             font-weight: 600;
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
         }
 
-        .skill-badge::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s, height 0.5s;
-        }
-
-        .skill-badge:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .skill-badge:hover {
-            transform: translateY(-5px) scale(1.1);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(236, 72, 153, 0.4));
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-
-        /* Contact Section */
+        /* Contact */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             max-width: 1000px;
-            margin: 0 auto;
+            margin: auto;
         }
 
         .contact-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #6366f1, #ec4899, #14b8a6, #6366f1);
-            border-radius: 20px;
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: -1;
-            background-size: 300% 300%;
-            animation: borderFlow 3s ease infinite;
-        }
-
-        .contact-card::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
-            border-radius: 18px;
-            z-index: -1;
-        }
-
-        @keyframes borderFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .contact-card:hover::before {
-            opacity: 1;
+            padding: 2rem;
+            transition: .3s;
         }
 
         .contact-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-10px) scale(1.05);
-            border-color: transparent;
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3),
-                        0 0 60px rgba(236, 72, 153, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99,102,241,0.3);
         }
 
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.4s;
-        }
+        .contact-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .contact-value a { color: #fff; text-decoration: none; }
 
-        .contact-card:hover .contact-icon {
-            transform: scale(1.3) rotateY(360deg);
-        }
-
-        .contact-label {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-value {
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .contact-value a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .contact-value a:hover {
-            color: #ec4899;
-            text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
-        }
-
-        /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
             text-align: center;
             padding: 3rem 5%;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,.8);
         }
-
-        footer p {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding: 6rem 5% 3rem;
-            }
-
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 4rem 5%;
-            }
-        }
-
-        /* Generate particles dynamically */
-        .particle:nth-child(1) { left: 5%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 15%; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 25%; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 35%; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 45%; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 55%; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 65%; animation-delay: 2.5s; }
-        .particle:nth-child(8) { left: 75%; animation-delay: 4.5s; }
-        .particle:nth-child(9) { left: 85%; animation-delay: 1.5s; }
-        .particle:nth-child(10) { left: 95%; animation-delay: 3.5s; }
     </style>
 </head>
+
 <body>
-    <!-- Animated Background -->
+
+    <!-- BACKGROUND -->
     <div class="animated-bg">
         <div class="tech-grid"></div>
+
         <div class="circuit-lines">
             <div class="circuit-line"></div>
             <div class="circuit-line"></div>
             <div class="circuit-line"></div>
             <div class="circuit-line"></div>
         </div>
+
         <div class="binary-rain">
-            <div class="binary-col">01001010<br>10110101<br>01010101<br>11001100<br>10101010<br>01110011</div>
-            <div class="binary-col">11010110<br>00101011<br>11001001<br>01010110<br>10011010<br>01100011</div>
-            <div class="binary-col">10101100<br>01011010<br>11100110<br>00101101<br>11010101<br>01001110</div>
-            <div class="binary-col">01110010<br>10011011<br>01101100<br>11010011<br>00111001<br>10101100</div>
-            <div class="binary-col">11001010<br>01010111<br>10110100<br>01101011<br>11010010<br>00101110</div>
-            <div class="binary-col">00110101<br>11101001<br>01011100<br>10010110<br>01101010<br>11001101</div>
-            <div class="binary-col">10100110<br>01110101<br>11010100<br>00101100<br>10011101<br>01010011</div>
-            <div class="binary-col">01101011<br>10010100<br>11000110<br>01011011<br>10101001<br>00110110</div>
-            <div class="binary-col">11010101<br>00101110<br>10110011<br>01100101<br>11001010<br>01011100</div>
-            <div class="binary-col">01011010<br>10101101<br>11100010<br>00110111<br>10010101<br>01101011</div>
+            <div class="binary-col">01001010<br>10110101<br>11001100<br>01110011</div>
+            <div class="binary-col">11010110<br>00101011<br>10011010<br>01100011</div>
+            <div class="binary-col">10101100<br>01011010<br>11010101<br>01001110</div>
+            <div class="binary-col">01110010<br>10011011<br>00111001<br>10101100</div>
+            <div class="binary-col">11001010<br>10110100<br>11010010<br>00101110</div>
         </div>
+
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
         <div class="orb orb3"></div>
     </div>
 
-    <!-- Particles -->
     <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
         <div class="particle"></div>
     </div>
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
         <nav>
             <div class="logo">VASANTH V</div>
@@ -800,7 +383,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Hi, I'm Vasanth V</h1>
@@ -809,6 +392,7 @@
                 Motivated and adaptable individual seeking opportunities in the IT industry to apply problem-solving skills,
                 learn new technologies, and contribute to organizational growth.
             </p>
+
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">Get In Touch</a>
                 <a href="#" class="btn btn-secondary">Resume</a>
@@ -816,65 +400,47 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT -->
     <section id="about">
         <h2 class="section-title">About Me</h2>
-        <div class="card about-card">
+        <div class="card">
             <div class="card-icon">🎓</div>
             <h3 class="card-title">Education</h3>
-            <p class="card-text">
-                <strong>B.Tech. Information Technology</strong><br>
-                Anjalai Ammal Mahalingam Engineering College, Thiruvarur<br>
-                CGPA: 7.5/10 | Graduation: May 2025
-            </p>
-            <p class="card-text" style="margin-top: 1.5rem;">
-                <strong>HSC (State Board)</strong><br>
-                Karthi Vidhyalaya Matriculation Hr Sec School, Kumbakonam<br>
-                Percentage: 78% | Year: May 2021
-            </p>
-            <p class="card-text" style="margin-top: 1.5rem;">
-                <strong>SSLC (State Board)</strong><br>
-                Karthi Vidhyalaya Matriculation Hr Sec School, Kumbakonam<br>
-                Percentage: 70% | Year: March 2019
-            </p>
-            <p class="card-text" style="margin-top: 1.5rem;">
-                I am passionate about leveraging technology to solve real-world problems. My journey in IT has equipped me
-                with a strong foundation in software development, UI/UX design, and machine learning, preparing me to make
-                meaningful contributions to innovative projects.
-            </p>
+            <p class="card-text"><strong>B.Tech Information Technology</strong><br>Anjalai Ammal Mahalingam Engineering College<br>CGPA: 7.5 / 10 | May 2025</p>
+            <p class="card-text" style="margin-top:1.2rem"><strong>HSC – Karthi Vidhyalaya Matric Hr Sec School</strong><br>78% | May 2021</p>
+            <p class="card-text" style="margin-top:1.2rem"><strong>SSLC – Karthi Vidhyalaya Matric Hr Sec School</strong><br>70% | March 2019</p>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- EXPERIENCE -->
     <section id="experience">
         <h2 class="section-title">Professional Experience</h2>
         <div class="card-grid">
             <div class="card">
                 <div class="card-icon">🎨</div>
                 <h3 class="card-title">UI/UX Intern</h3>
-                <p class="card-subtitle">Astonish Infotech [p] LTD</p>
-                <p class="card-date">June 14 - August 10, 2025</p>
+                <p class="card-subtitle">Astonish Infotech [P] LTD</p>
+                <p class="card-date">June 14 – August 10, 2025</p>
                 <p class="card-text">
-                    Completed a UI/UX internship focused on designing user-friendly interfaces and improving user experience.
-                    Gained hands-on experience with the Figma tool, creating wireframes, prototypes, and design systems for
-                    multiple client projects.
+                    Designed user-friendly interfaces using Figma, created wireframes and interactive prototypes,
+                    and contributed to client-based UI/UX projects.
                 </p>
             </div>
+
             <div class="card">
                 <div class="card-icon">🤖</div>
                 <h3 class="card-title">Machine Learning Intern</h3>
                 <p class="card-subtitle">SmartiApps Technologies</p>
-                <p class="card-date">February - May, 2025</p>
+                <p class="card-date">February – May 2025</p>
                 <p class="card-text">
-                    Contributed as an intern to a machine learning-based lung cancer prediction system, gaining hands-on
-                    experience in data preprocessing, model training, and real-time diagnosis enhancement using deep learning
-                    techniques.
+                    Worked on ML-based lung cancer prediction system using CT scan images — responsible for preprocessing,
+                    evaluating deep learning models, and improving prediction performance.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- PROJECTS -->
     <section id="projects">
         <h2 class="section-title">Academic Projects</h2>
         <div class="card-grid">
@@ -882,30 +448,25 @@
                 <div class="card-icon">🔬</div>
                 <h3 class="card-title">Lung Cancer Detection Using ResNeXt</h3>
                 <p class="card-text">
-                    Developed a deep learning model using the ResNeXt architecture to detect lung cancer from CT scan images.
-                    Enhanced image quality with CLAHE preprocessing and improved model performance using CutMix data augmentation
-                    techniques for accurate and early diagnosis.
+                    Built a deep learning model based on ResNeXt architecture for lung cancer classification using CT scan images.
+                    Enhanced accuracy using CLAHE preprocessing and CutMix augmentation.
                 </p>
-                <p class="card-text">
-                    <strong>Technologies:</strong> Python, TensorFlow, ResNeXt, CLAHE, CutMix
-                </p>
+                <p class="card-text"><strong>Technologies:</strong> Python, TensorFlow, CNN, ResNeXt, CLAHE</p>
             </div>
+
             <div class="card">
                 <div class="card-icon">💼</div>
                 <h3 class="card-title">Conference Management System</h3>
                 <p class="card-text">
-                    Developed a comprehensive Java-based Conference Management System to handle employee records and monitor
-                    performance metrics. Implemented features for efficient data storage, employee information retrieval,
-                    and automated reporting capabilities.
+                    Java-based project for maintaining employee records and generating automated reports.
+                    Included performance monitoring and data storage.
                 </p>
-                <p class="card-text">
-                    <strong>Technologies:</strong> Java, SQL, JDBC, Swing
-                </p>
+                <p class="card-text"><strong>Technologies:</strong> Java, SQL, JDBC, Swing</p>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- SKILLS -->
     <section id="skills">
         <h2 class="section-title">Technical Skills</h2>
         <div class="skills-grid">
@@ -927,31 +488,28 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT -->
     <section id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-grid">
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
                 <p class="contact-label">Email</p>
-                <p class="contact-value">
-                    <a href="mailto:vasanthmv230@gmail.com">vasanthmv230@gmail.com</a>
-                </p>
+                <p class="contact-value"><a href="mailto:vasanthmv230@gmail.com">vasanthmv230@gmail.com</a></p>
             </div>
+
             <div class="contact-card">
                 <div class="contact-icon">📱</div>
                 <p class="contact-label">Phone</p>
-                <p class="contact-value">
-                    <a href="tel:9943160748">9943160748</a>
-                </p>
+                <p class="contact-value"><a href="tel:9943160748">9943160748</a></p>
             </div>
+
             <div class="contact-card">
                 <div class="contact-icon">💼</div>
                 <p class="contact-label">LinkedIn</p>
-                <p class="contact-value">
-                    <a href="https://linkedin.com/in/vasanth-v-230vd" target="_blank">vasanth-v-230vd</a>
-                </p>
+                <p class="contact-value"><a href="https://linkedin.com/in/vasanth-v-230vd" target="_blank">vasanth-v-230vd</a></p>
             </div>
+
             <div class="contact-card">
                 <div class="contact-icon">📍</div>
                 <p class="contact-label">Location</p>
@@ -960,35 +518,28 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2024 Vasanth V. All rights reserved. Built with passion and code.</p>
     </footer>
 
+    <!-- SCRIPT -->
     <script>
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 100);
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
+
 </body>
 </html>
